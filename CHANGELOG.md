@@ -1,1 +1,1 @@
-# [Changelog](https://github.com/michaeljoseph/datalogy/releases)
+# [Changelog](https://github.com/jeroenjanssens/data-science-toolbox/releases)

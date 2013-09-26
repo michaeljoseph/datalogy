@@ -20,6 +20,7 @@ class ScrapeTestCase(TestCase):
         )
 
         self.assertEqual(
-            '<a href="/wiki/Afghanistan" title="Afghanistan">Afghanistan</a>\n',
+            ('<a href="/wiki/Afghanistan" '
+             'title="Afghanistan">Afghanistan</a>\n'),
             scrape(html, expression, text, body, delimiter)[0]
         )

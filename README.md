@@ -1,6 +1,6 @@
 # datalogy
 
-A collection of command-line tools that facilitate the obtaining, scrubbing
+A collection of python tools that facilitate the obtaining, scrubbing
 and exploring of data.
 
 ## scrape

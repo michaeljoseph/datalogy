@@ -1,5 +1,14 @@
 # datalogy
 
+[![Build Status](https://secure.travis-ci.org/michaeljoseph/datalogy.png)](http://travis-ci.org/michaeljoseph/datalogy)
+[![Stories in Ready](https://badge.waffle.io/michaeljoseph/datalogy.png?label=ready)](https://waffle.io/michaeljoseph/datalogy)
+[![pypi version](https://badge.fury.io/py/datalogy.png)](http://badge.fury.io/py/datalogy)
+[![# of downloads](https://pypip.in/d/datalogy/badge.png)](https://crate.io/packages/datalogy?version=latest)
+[![code coverage](https://coveralls.io/repos/michaeljoseph/datalogy/badge.png?branch=master)](https://coveralls.io/r/michaeljoseph/datalogy?branch=master)
+
+![datalogy](https://github.com/michaeljoseph/datalogy/raw/master/resources/datalogy.jpg)
+
+
 A collection of python tools that facilitate the obtaining, scrubbing
 and exploring of data.
 

@@ -42,7 +42,7 @@ def html_wrap(html):
     return html
 
 
-def scrape(html, expression, text, body, delimiter):
+def scrape(html, expression):
     if not expression.startswith('//') and cssselect:
         expression = cssselect.GenericTranslator().css_to_xpath(expression)
 
@@ -60,34 +60,22 @@ def scrape(html, expression, text, body, delimiter):
         except IOError:
             pass
 
-    if body:
-        return html_wrap(output)
-    else:
-        return output
+    return output
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-e', '--expression', default='*',
                         help='XPath query or CSS3 selector')
-    parser.add_argument('-t', '--text', action='store_true', default=False,
-                        help='Output text instead of HTML')
-    parser.add_argument('-b', '--body', action='store_true', default=False,
-                        help='Enclose output with HTML and BODY tags')
-    parser.add_argument('-d', '--delimiter', default=' ',
-                        help='Delimiter when output is text')
     args = parser.parse_args()
 
-    html, expression, text, body, delimiter = (
+    html, expression = (
         '\n'.join(sys.stdin.readlines()),
         args.expression,
-        args.text,
-        args.body,
-        args.delimiter
     )
 
     try:
-        output = scrape(html, expression, text, body, delimiter)
+        output = scrape(html, expression)
     except cssselect.SelectorError:
         parser.error('Invalid CSS selector')
 

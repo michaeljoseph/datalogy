@@ -5,7 +5,7 @@ def clean_table(table):
     """Removes empty rows, deletes row duplicates"""
     cleaned_table = []
     for row in table:
-        row = remove_nbsp(row)
+        row = strip_unprintables(remove_nbsp(row))
         if row and non_empty(row):
             cleaned_table.append(row)
 
@@ -50,4 +50,12 @@ def remove_nbsp(row):
 
 def strip_unprintables(row):
     """Strip unprintable unicode characters"""
-    return [cell.replace(u'\xa0', '') for cell in row]
+    printables = []
+    for cell in row:
+        if isinstance(cell, basestring):
+            printables.append(
+                unicode(cell).replace(u'\xa0', '')
+            )
+        else:
+            printables.append(cell)
+    return printables

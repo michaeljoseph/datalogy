@@ -8,12 +8,19 @@ class HtmlTestCase(TestCase):
     row = [1, 2, 3]
     labelled_row = ['TRAIN NO.', '0116', '0118', '0120', 'TRAIN NO.', '0124']
 
-    def test_parse_html(self):
-        self.assertTrue(
-            isinstance(
-                html.parse_html_table('<html></html>'),
-                list
-            )
+    def test_parse_html_table(self):
+        expected_html_table = [[u'first'], [u'second'], [u'third']]
+        self.assertEquals(
+            expected_html_table,
+            html.parse_html_table("""
+                <html>
+                    <table>
+                        <tr><td>first</td></tr>
+                        <tr><td>second</td></tr>
+                        <tr><td>third</td></tr>
+                    </table>
+                </html>
+            """),
         )
 
     def test_pad_list(self):

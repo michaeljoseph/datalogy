@@ -63,8 +63,10 @@ class HtmlTestCase(TestCase):
         )
 
     def test_strip_unprintables(self):
-        row = [u'\xa0FISH HOEK', '00:03 ', '04:36 ', '05:36 ', '06:34 ', '07:30 ', '08:29 ', '09:16 ', '09:40 ', '10:07 ', '10:54 ', '12:05 ', u'\xa0FISH HOEK', '13:12 ', '13:53 ', '15:06 ', '16:14 ', '16:36 ', '17:06 ', '17:48 ', '19:07 ', u'\xa0', u'\xa0']
-        expected =[u'FISH HOEK', '00:03 ', '04:36 ', '05:36 ', '06:34 ', '07:30 ', '08:29 ', '09:16 ', '09:40 ', '10:07 ', '10:54 ', '12:05 ', u'FISH HOEK', '13:12 ', '13:53 ', '15:06 ', '16:14 ', '16:36 ', '17:06 ', '17:48 ', '19:07 ', '', '']
+        row = [u'\xa0FISH HOEK', '08:29 ', '09:16 ', '09:40 ',
+               u'\xa0FISH HOEK', '13:12 ', '19:07 ', u'\xa0', u'\xa0']
+        expected = [u'FISH HOEK', '08:29 ', '09:16 ', '09:40 ',
+                    u'FISH HOEK', '13:12 ', '19:07 ', '', '']
 
         print html.strip_unprintables(row)
         self.assertEquals(

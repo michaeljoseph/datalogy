@@ -10,6 +10,7 @@ install:
 
 script:
     - nosetests --with-coverage --cover-package=datalogy
+    - flake8 setup.py datalogy tests
 
 after_success:
   - coveralls

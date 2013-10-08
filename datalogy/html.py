@@ -1,6 +1,3 @@
-from datetime import datetime
-import logging
-
 from pyquery import PyQuery as pq
 
 
@@ -24,7 +21,7 @@ def normalise_tabular_labelling(row, marker_item):
     for item in row:
         if item == marker_item:
             row.remove(item)
-    return row 
+    return row
 
 
 def parse_html_table(html):

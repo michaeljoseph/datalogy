@@ -30,8 +30,9 @@ def parse_html_table(html):
     for row in document('table > tr'):
         row_data = []
         for cell in row.iterchildren():
-            row_data.append(cell.text_content())
+            row_data.append(unicode(cell.text))
         html_table.append(row_data)
+
     return html_table
 
 

@@ -36,10 +36,10 @@ def parse_html_table(html):
     return html_table
 
 
-def pad_list(row, length):
+def pad_list(row, length, missing_value=None):
     padding = length - len(row)
     if padding:
-        padding = padding * [None]
+        padding = padding * [missing_value]
         return row + padding
     return row
 

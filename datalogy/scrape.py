@@ -1,12 +1,19 @@
 """
 scrape: Extract HTML elements using an XPath query or CSS3 selector.
 
-Example usage:
+Usage:
+  scrape <expression> [<url>]
 
-     curl -s http://en.wikipedia.org/wiki/List_of_sovereign_states | \
-             scrape -be 'table.wikitable > tr > td > b > a'
+  scrape -h | --help
 
-Dependencies: lxml and optionally cssselector
+Options:
+  --debug               Debug output.
+
+Examples:
+
+    scrape 'table.wikitable > tr > td > b > a' http://en.wikipedia.org/wiki/List_of_sovereign_states 
+
+    curl -s http://en.wikipedia.org/wiki/List_of_sovereign_states | scrape 'table.wikitable > tr > td > b > a'
 
 Copyright (C) 2013 Jeroen Janssens
 Copyright (C) 2013 Michael Joseph
@@ -25,15 +32,18 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see [http://www.gnu.org/licenses/].
 """
 
-import argparse
 import sys
 
+from docopt import docopt
 from lxml import etree
 cssselect = None
 try:
     import cssselect
 except:
     pass
+
+import datalogy
+
 
 
 def html_wrap(html):
@@ -64,18 +74,14 @@ def scrape(html, expression):
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-e', '--expression', default='*',
-                        help='XPath query or CSS3 selector')
-    args = parser.parse_args()
+    arguments = docopt(__doc__, version=datalogy.__version__)
+    expression = arguments['<expression>']
+    url = arguments['<url>']
 
-    html, expression = (
-        '\n'.join(sys.stdin.readlines()),
-        args.expression,
-    )
+        content = '\n'.join(sys.stdin.readlines())
 
     try:
-        output = scrape(html, expression)
+        output = scrape(content, expression)
     except cssselect.SelectorError:
         parser.error('Invalid CSS selector')
 
@@ -85,7 +91,6 @@ def main():
             sys.stdout.flush()
         except IOError:
             pass
-
 
 if __name__ == '__main__':
     exit(main())

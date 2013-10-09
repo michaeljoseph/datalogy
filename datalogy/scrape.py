@@ -33,6 +33,7 @@ along with this program.  If not, see [http://www.gnu.org/licenses/].
 """
 
 import sys
+import logging
 
 from docopt import docopt
 from lxml import etree
@@ -45,6 +46,8 @@ except:
 
 import datalogy
 
+
+log = logging.getLogger(__name__)
 
 
 def html_wrap(html):
@@ -76,9 +79,11 @@ def scrape(html, expression):
 
 def main():
     arguments = docopt(__doc__, version=datalogy.__version__)
+    debug = True
     expression = arguments['<expression>']
     url = arguments['<url>']
 
+    logging.basicConfig(level=logging.DEBUG if debug else logging.INFO)
 
     if not url:
         content = '\n'.join(sys.stdin.readlines())

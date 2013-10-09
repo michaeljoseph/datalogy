@@ -11,6 +11,7 @@ pinocchio < 1.0.0
 python-coveralls < 3.0.0
 pyquery < 2.0.0
 Sphinx >= 1.1.0, < 2.0.0
+requests < 2.1.0
 sphinx-bootstrap-theme < 1.0.0
 sphinxcontrib-httpdomain < 2.0.0
 testtube < 1.0.0

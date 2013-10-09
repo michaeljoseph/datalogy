@@ -36,6 +36,7 @@ import sys
 
 from docopt import docopt
 from lxml import etree
+import requests
 cssselect = None
 try:
     import cssselect
@@ -78,7 +79,11 @@ def main():
     expression = arguments['<expression>']
     url = arguments['<url>']
 
+
+    if not url:
         content = '\n'.join(sys.stdin.readlines())
+    else:
+        content = requests.get(url).content
 
     try:
         output = scrape(content, expression)

@@ -10,7 +10,9 @@ setup(
     packages=['datalogy'],
     install_requires=[
         'cssselect < 1.0.0',
+        'docopt < 1.0.0',
         'lxml < 4.0.0',
+        'requests < 2.1.0',
     ],
     entry_points={
         'console_scripts': [

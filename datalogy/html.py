@@ -1,19 +1,17 @@
 from pyquery import PyQuery as pq
 
+from datalogy import util
+
 
 def clean_table(table):
     """Removes empty rows, deletes row duplicates"""
     cleaned_table = []
     for row in table:
         row = strip_unprintables(remove_nbsp(row))
-        if row and non_empty(row):
+        if row and util.non_empty(row):
             cleaned_table.append(row)
 
     return cleaned_table
-
-
-def non_empty(row):
-    return any([cell for cell in row])
 
 
 def normalise_tabular_labelling(row, marker_item):
@@ -30,18 +28,10 @@ def parse_html_table(html):
     for row in document('table > tr'):
         row_data = []
         for cell in row.iterchildren():
-            row_data.append(unicode(cell.text))
+            row_data.append(cell.text)
         html_table.append(row_data)
 
     return html_table
-
-
-def pad_list(row, length, missing_value=None):
-    padding = length - len(row)
-    if padding:
-        padding = padding * [missing_value]
-        return row + padding
-    return row
 
 
 def remove_nbsp(row):

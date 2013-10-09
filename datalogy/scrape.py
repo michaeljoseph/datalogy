@@ -11,9 +11,11 @@ Options:
 
 Examples:
 
-    scrape 'table.wikitable > tr > td > b > a' http://en.wikipedia.org/wiki/List_of_sovereign_states 
+    scrape 'table.wikitable > tr > td > b > a' \
+           http://en.wikipedia.org/wiki/List_of_sovereign_states
 
-    curl -s http://en.wikipedia.org/wiki/List_of_sovereign_states | scrape 'table.wikitable > tr > td > b > a'
+    curl -s http://en.wikipedia.org/wiki/List_of_sovereign_states | \
+            scrape 'table.wikitable > tr > td > b > a'
 
 Copyright (C) 2013 Jeroen Janssens
 Copyright (C) 2013 Michael Joseph
@@ -93,7 +95,7 @@ def main():
     try:
         output = scrape(content, expression)
     except cssselect.SelectorError:
-        parser.error('Invalid CSS selector')
+        log.error('Invalid CSS selector')
 
     for line in output:
         try:

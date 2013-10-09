@@ -1,5 +1,21 @@
 # [Changelog](https://github.com/michaeljoseph/datalogy/releases)
 
+## [0.1.0](https://github.com/michaeljoseph/datalogy/compare/0.0.1...0.1.0)
+
+* [b4355ac](https://github.com/michaeljoseph/datalogy/commit/b4355ac) flake8 cleanup
+* [851054f](https://github.com/michaeljoseph/datalogy/commit/851054f) abc
+* [ff3db3d](https://github.com/michaeljoseph/datalogy/commit/ff3db3d) Add logging
+* [ea0c709](https://github.com/michaeljoseph/datalogy/commit/ea0c709) Download url with requests
+* [bceef28](https://github.com/michaeljoseph/datalogy/commit/bceef28) Use docopt
+* [9afcd7a](https://github.com/michaeljoseph/datalogy/commit/9afcd7a) Refactor a util module
+* [0794028](https://github.com/michaeljoseph/datalogy/commit/0794028) Add strip_unprintables to clean_table
+* [f6c4f77](https://github.com/michaeljoseph/datalogy/commit/f6c4f77) Optional missing value kwarg for pad_list
+* [f8ad695](https://github.com/michaeljoseph/datalogy/commit/f8ad695) Use the correct attribute
+* [66dc164](https://github.com/michaeljoseph/datalogy/commit/66dc164) Useful parse_html_table test
+* [41588b5](https://github.com/michaeljoseph/datalogy/commit/41588b5) Linting
+* [fa95605](https://github.com/michaeljoseph/datalogy/commit/fa95605) Add more parsing utilities
+* [2d0d8be](https://github.com/michaeljoseph/datalogy/commit/2d0d8be) Remove extraneous cli args
+
 ## [0.0.1](https://github.com/michaeljoseph/datalogy/compare/0.0.1...0.0.1)
 
 * [235b70d](https://github.com/michaeljoseph/datalogy/commit/235b70d) flake8 eveverything
